@@ -19,7 +19,7 @@ Após isso, basta executar o arquivo:
 ```sh
 $ python3 principal.py
 ```
-ou este para com a UI
+ou este para com a UI (em construção)
 ```sh
 $ python3 principalTkinter.py
 ```

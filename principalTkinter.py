@@ -3,17 +3,41 @@ from tkinter import *
 import sqlite3
 
 #### Definições da Aplicação Principal ###
-janela = Tk()
-janela.title("Alunos 2000")
-janela.geometry("383x400")
-janela.resizable(FALSE, FALSE)
+principal = Tk()
+principal.title("Alumn - Principal")
+principal.geometry("383x400")
+principal.resizable(FALSE, FALSE)
 
 ### Definicões de outras telas ###
 def adc():
     adc = Tk()
-    adc.title("Adicionar alunos")
+    adc.title("Alumn - Adicionar alunos")
     adc.geometry("400x400")
     adc.resizable(FALSE, FALSE)
+
+    ### Função Adicionar ###
+    #O método get() não está funcionando, está inserindo dados em branco
+    #no banco de dados
+    def adicionar():
+        nome = etNome.get()
+        nota = etNota.get()
+        cursor.execute("""
+            INSERT INTO alunos (nome, nota) VALUES (?, ?)""", (nome, nota))
+        conn.commit()
+
+    ### Objetos - Adicionar Aluno ###
+    lblTitulo = Label(adc, text="Alumn - Adicionar Alunos")
+    etNome = Entry(adc)
+    etNota = Entry(adc)
+    btnAdc = Button(adc, text="Adicionar", commmand=adicionar())
+
+    adc.bind('<Return>', adicionar())
+
+    ### Posicionamento de Objetos - Adicionar Aluno ###
+    lblTitulo.grid(row=0, padx=119, columnspan=5)
+    etNome.grid(row=1)
+    etNota.grid(row=2)
+    btnAdc.grid(row=3)
 
 def dele():
     dele = Tk()
@@ -45,15 +69,6 @@ conn = sqlite3.connect("alunos.db")
 cursor = conn.cursor()
 
 #### Funções ###
-def adc_estudante():
-    nAlunos = int(input("Digite o número de alunos: "))
-    for i in range(nAlunos):
-        nome = input("Digite o nome do estudante: ")
-        nota = input("Digite a nota para %s: " % nome)
-        cursor.execute("""
-            INSERT INTO alunos (nome, nota) VALUES (?, ?)""", (nome, nota))
-        conn.commit()
-
 def del_estudante():
     id = int(input("Digite o ID do aluno: "))
     cursor.execute("""
@@ -74,18 +89,18 @@ def mudar_nota():
         linha()
         print("A nota do aluno de ID %i foi alterada para %s" % (id, nota))
 
-### Objetos ###
-lblTitulo = Label(janela, text="Alunos 2000")
-btnAdc = Button(janela, text="Adicionar alunos", command=adc)
-btnDel = Button(janela, text="Deletar aluno", command=dele)
-btnMudar = Button(janela, text="Mudar nota", command=mudar)
-btnExportar = Button(janela, text="Exportar", command=expo)
+### Objeto - Principal ###
+lblTitulo = Label(principal, text="Alumn")
+btnAdc = Button(principal, text="Adicionar alunos", command=adc)
+btnDel = Button(principal, text="Deletar aluno", command=dele)
+btnMudar = Button(principal, text="Mudar nota", command=mudar)
+btnExportar = Button(principal, text="Exportar", command=expo)
 
-### Posicionamento dos Objetos ###
-lblTitulo.grid(row=0, padx=151, columnspan=5)
-btnAdc.grid(row=1, column=0)
-btnDel.grid(row=1, column=1)
-btnMudar.grid(row=1, column=2)
-btnExportar.grid(row=1, column=3)
+### Posicionamento de Objetos - Principal ###
+lblTitulo.grid(row=0, padx=169, columnspan=5)
+btnAdc.grid(row=1, column=0, sticky=E)
+btnDel.grid(row=1, column=1, sticky=E)
+btnMudar.grid(row=1, column=2, sticky=E)
+btnExportar.grid(row=1, column=3, sticky=E)
 
-janela.mainloop()
+principal.mainloop()
