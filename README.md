@@ -3,23 +3,22 @@
 Um sistema simples para cadastro e distribuição de notas para alunos de determinada matéria. Faz o uso de SQLite3 para banco de dados e comunicação entre os dados.
 Interface gráfica com Tkinter.
 
+###Adicionar Aluno - 100% funcional
+###Listar Alunos - 100% funcional
+###Deletar Aluno - apenas deleta temporariamente
+###Mudar Nota - não faz nada
+####Mais detalhes: [clique aqui](https://github.com/GAzevedo/Alumn/commit/f5332b3e664490bb6e938c9d3f9bf975c1d5b6ee)
+
 ##Executar
 
 São apenas passos:
 
-No terminal, execute os arquivos criarbd.py e criartabela.py para criar o banco de dados e a tabela do mesmo
-
-```sh
-$ python3 criarbd.py
-$ python3 criartabela.py
-```
-
-Após isso, basta executar o arquivo:
+No terminal, execute o arquivo:
 
 ```sh
 $ python3 principal.py
 ```
-ou este para com a UI (em construção)
+ou este para com a UI (finalizada mas não 100% funcional)
 ```sh
 $ python3 principalTkinter.py
 ```
