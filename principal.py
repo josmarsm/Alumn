@@ -5,6 +5,18 @@ import io
 #Globais
 conn = sqlite3.connect("alunos.db")
 cursor = conn.cursor()
+
+def criarTabela():
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS alunos (
+            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL,
+            nota TEXT NOT NULL
+        );
+    """)
+
+criarTabela()
+
 print("Bem-vindo ao Cadastro de Alunos")
 
 #Funções
