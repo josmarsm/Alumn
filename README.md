@@ -8,8 +8,8 @@ Interface gráfica com Tkinter.
 -> Listar Alunos - 100% funcional
 -> Deletar Aluno - apenas deleta temporariamente
 -> Mudar Nota - não faz nada
--> Mais detalhes: [clique aqui](https://github.com/GAzevedo/Alumn/commit/f5332b3e664490bb6e938c9d3f9bf975c1d5b6ee)
 ```
+######Mais detalhes: [clique aqui](https://github.com/GAzevedo/Alumn/commit/f5332b3e664490bb6e938c9d3f9bf975c1d5b6ee)
 
 ##Executar
 
