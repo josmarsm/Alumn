@@ -3,11 +3,11 @@
 Um sistema simples para cadastro e distribuição de notas para alunos de determinada matéria. Faz o uso de SQLite3 para banco de dados e comunicação entre os dados.
 Interface gráfica com Tkinter.
 
-###Adicionar Aluno - 100% funcional
-###Listar Alunos - 100% funcional
-###Deletar Aluno - apenas deleta temporariamente
-###Mudar Nota - não faz nada
-####Mais detalhes: [clique aqui](https://github.com/GAzevedo/Alumn/commit/f5332b3e664490bb6e938c9d3f9bf975c1d5b6ee)
+#####Adicionar Aluno - 100% funcional
+#####Listar Alunos - 100% funcional
+#####Deletar Aluno - apenas deleta temporariamente
+#####Mudar Nota - não faz nada
+#####Mais detalhes: [clique aqui](https://github.com/GAzevedo/Alumn/commit/f5332b3e664490bb6e938c9d3f9bf975c1d5b6ee)
 
 ##Executar
 
