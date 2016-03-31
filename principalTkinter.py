@@ -33,17 +33,18 @@ def adicionar_estudante():
     lstAlunos.insert(END, (nome, nota))
 
 def deletar_estudante():
-    delALuno = str(lstAlunos.get(ACTIVE))
+    id_aluno = etID.get()
+    print(delALuno)
     cursor.execute("""
-        DELETE FROM alunos WHERE id=?""", (delALuno,))
+        DELETE FROM alunos WHERE id=?""", (id_aluno,))
     conn.commit()
     lstAlunos.delete(ANCHOR)
 
 def mudar_nota():
-    novaNota = etNovaNota.get()
-    mudarNota = str(lstAlunos.get(ACTIVE))
+    nova_nota = etNovaNota.get()
+    mudar_nota = str(lstAlunos.get(ACTIVE))
     cursor.execute("""
-        UPDATE alunos SET nota = ? WHERE id = ?""", (novaNota, mudarNota))
+        UPDATE alunos SET nota = ? WHERE id = ?""", (nova_nota, mudar_nota))
     conn.commit()
 
 def exportar():
@@ -51,7 +52,7 @@ def exportar():
         for linha in conn.iterdump():
             f.write('%s\n' % linha)
     cursor.execute("""
-    SELECT * FROM alunos;
+        SELECT * FROM alunos;
     """)
     with io.open('alunos.txt', 'w') as f:
         for linha in cursor.fetchall():
@@ -60,7 +61,7 @@ def exportar():
 
 ### Widgets - Principal ###
 lblTitulo = Label(principal, text="Alumn")
-lblNomeNota = Label(principal, text="Nome / Nota")
+lblNomeNota = Label(principal, text="ID / Nome / Nota")
 
 ### Widgets - Adicionar Aluno ###
 lblAdicionarAluno = Label(principal, text="Adicionar Aluno")
@@ -72,7 +73,9 @@ btnAdd = Button(principal, text="Adicionar", command=adicionar_estudante)
 
 ### Widgets - Deletar Aluno ###
 lblDeletarAluno = Label(principal, text="Deletar Aluno")
-btnDel = Button(principal, text="Deletar Aluno Selecionado", command=deletar_estudante)
+lblID = Label(principal, text="ID: ")
+etID = Entry(principal, width=10)
+btnDel = Button(principal, text="Deletar", command=deletar_estudante)
 
 ### Widgets - Mudar Nota ###
 lblMudarNota = Label(principal, text="Mudar Nota")
@@ -86,7 +89,7 @@ lstAlunos = Listbox(principal, width=35, height=13)
 lstAlunos.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=lstAlunos.yview)
 lista = cursor.execute("""
-    SELECT nome, nota FROM alunos;
+    SELECT * FROM alunos;
     """)
 for i in lista:
     lstAlunos.insert(END, i)
@@ -109,7 +112,9 @@ btnAdd.place(x=115, y=115)
 
 ### Posicionamento de Widgets - Deletar Aluno ###
 lblDeletarAluno.place(x=100, y=145)
-btnDel.place(x=60, y=165)
+lblID.place(x=10, y=167)
+etID.place(x=50, y=165)
+btnDel.place(x=145, y=168)
 
 ### Posicionamento de Widgets - Mudar Nota ###
 lblMudarNota.place(x=100, y=195)
