@@ -9,6 +9,7 @@ Interface gráfica com Tkinter.
 -> Deletar Aluno - 100% funcional
 -> Mudar Nota - 100% funcional
 -> Exportar - em progresso
+-> Antigo principal.py substituído por principalTkinter.py
 ```
 ######Mais detalhes: [clique aqui](https://github.com/GAzevedo/Alumn/commit/f5332b3e664490bb6e938c9d3f9bf975c1d5b6ee)
 
@@ -17,10 +18,6 @@ No terminal, execute o arquivo:
 
 ```sh
 $ python3 principal.py
-```
-ou este para com a UI (finalizada mas não 100% funcional)
-```sh
-$ python3 principalTkinter.py
 ```
 
 ##Executável
