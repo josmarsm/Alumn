@@ -11,6 +11,9 @@ Interface gráfica com Tkinter.
 -> Exportar - em progresso
 -> Antigo principal.py substituído por principalTkinter.py
 ```
+
+![Tela](http://i.imgur.com/pKmrSEI.png)
+
 ######Mais detalhes: [clique aqui](https://github.com/GAzevedo/Alumn/commit/f5332b3e664490bb6e938c9d3f9bf975c1d5b6ee)
 
 ##Executar
