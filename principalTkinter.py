@@ -38,7 +38,12 @@ def deletar_estudante():
     cursor.execute("""
         DELETE FROM alunos WHERE matricula=?""", (matricula_aluno,))
     conn.commit()
-    lstAlunos.delete(matricula_aluno)
+    lstAlunos.delete(0, END)
+    lista = cursor.execute("""
+        SELECT * FROM alunos;
+        """)
+    for i in lista:
+        lstAlunos.insert(END, i)
 
 def mudar_nota():
     matricula_aluno = etMatriculaMudar.get()
@@ -46,6 +51,12 @@ def mudar_nota():
     cursor.execute("""
         UPDATE alunos SET nota = ? WHERE matricula = ?""", (nova_nota, matricula_aluno))
     conn.commit()
+    lstAlunos.delete(0, END)
+    lista = cursor.execute("""
+        SELECT * FROM alunos;
+        """)
+    for i in lista:
+        lstAlunos.insert(END, i)
 
 def exportar():
     with io.open('alunos.sql', 'w') as f:
